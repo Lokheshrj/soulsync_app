@@ -20,7 +20,7 @@ export const AzureBlendshapeMap = [
 
 const TalkingHeadComponent = () => {
     const location = useLocation();
-    const { id, name, link } = location.state || {};
+    const { id, name, link, voice } = location.state || {};
     const avatarRef = useRef(null);
     const [loadingText, setLoadingText] = useState("Loading...");
     const [text, setText] = useState("");
@@ -128,7 +128,7 @@ const TalkingHeadComponent = () => {
             // Send the backend response to Azure TTS
             const ssml = `
                 <speak version="1.0" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
-                    <voice name="en-US-EmmaNeural">
+                    <voice name="${voice}">
                         <mstts:viseme type="FacialExpression" />
                         ${data.reply.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}
                     </voice>

@@ -45,7 +45,7 @@ const AvatarCard = ({ avatar, onSelect }) => {
                 </Typography>
             </CardContent> */}
             <CardActions style={{ justifyContent: "center" }}>
-                <Button size="small" color="primary" onClick={() => onSelect(avatar.id, avatar.name, avatar.link)}>
+                <Button size="small" color="primary" onClick={() => onSelect(avatar.id, avatar.name, avatar.link, avatar.voice)}>
                     {avatar.name}
                 </Button>
             </CardActions>
@@ -56,14 +56,14 @@ const AvatarCard = ({ avatar, onSelect }) => {
 const Menu = () => {
     const navigate = useNavigate();
     const avatars = [
-        { id: 1, name: "David", link: "https://models.readyplayer.me/67e941a9f4667aed0b2d743b.glb" },
-        { id: 2, name: "Aishu", link: "https://models.readyplayer.me/67e93f2e9954ca6204b06560.glb" },
-        { id: 3, name: "Harini", link: "https://models.readyplayer.me/67e93d3b8eb6efd8973f1018.glb" },
-        { id: 4, name: "Sara", link: "https://models.readyplayer.me/67e91eeb68fbe95a3178f645.glb" },
+        { id: 1, name: "David", link: "https://models.readyplayer.me/67e941a9f4667aed0b2d743b.glb", voice: "en-US-GuyNeural" },
+        { id: 2, name: "Aishu", link: "https://models.readyplayer.me/67e93f2e9954ca6204b06560.glb", voice: "en-US-EmmaNeural" },
+        { id: 3, name: "Harini", link: "https://models.readyplayer.me/67e93d3b8eb6efd8973f1018.glb", voice: "en-IN-NeerjaNeural" },
+        { id: 4, name: "Sara", link: "https://models.readyplayer.me/67e91eeb68fbe95a3178f645.glb", voice: "en-AU-NatashaNeural" },
     ];
 
-    const handleSelectAvatar = (id, name, link) => {
-        navigate("/talking-head", { state: { id, name, link } });
+    const handleSelectAvatar = (id, name, link, voice) => {
+        navigate("/talking-head", { state: { id, name, link, voice } });
     };
 
     return (
